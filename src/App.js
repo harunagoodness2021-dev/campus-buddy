@@ -153,7 +153,7 @@ export default function CampusBuddy() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3001/api/chat", {
+      const res = await fetch("https://campus-buddy-api-mozi.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -194,7 +194,7 @@ export default function CampusBuddy() {
           { role: "user", content: toolResults },
         ];
 
-        const res2 = await fetch("http://localhost:3001/api/chat", {
+        const res2 = await fetch("https://campus-buddy-api-mozi.onrender.com/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

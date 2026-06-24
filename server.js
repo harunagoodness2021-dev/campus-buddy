@@ -2,7 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://harunagoodness2021-dev.github.io', 'http://localhost:3000'],
+  methods: ['POST', 'GET'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 
 app.post('/api/chat', async (req, res) => {
@@ -24,4 +29,5 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log('Campus Buddy proxy running on port 3001'));
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Campus Buddy proxy running on port ${PORT}`));
